@@ -32,8 +32,15 @@ namespace Xamarin.Forms.ImagePicker.iOS
             _pickAsyncResult = null;
             var viewController = GetTheMostPresentedViewController();
 
-            var cameraViewController = new CameraViewController(true, true,
-                (image, asset) =>
+            var cameraViewController = new CameraViewController(
+                croppingEnabled: true,
+                allowResizing: true, 
+                allowMoving: true, 
+                allowsLibrarySave: false, 
+                allowsLibraryAccess: true, 
+                allowsSwapCameraOrientation: true,
+                allowVolumeButtonCapture: true,
+                completion: (image, asset) =>
                 {
                     if (image != null)
                     {
